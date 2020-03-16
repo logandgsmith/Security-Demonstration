@@ -11,8 +11,11 @@
 ## Create Account
 
 Target: /authenticate.php
+
 Method: POST
+
 Description: Creates account, saves to database, and returns session token.
+
 Params:
 
 ```js
@@ -32,8 +35,11 @@ Response:
 ```
 
 ## Log in
+
 Target: /authenticate.php
+
 Method: GET
+
 Description: Using the provided credentials, changes the user's server-side session token and then sends it back to the client.
 
 Params:
@@ -56,7 +62,9 @@ Response:
 ## Transfer funds
 
 Target: /transfer.php
+
 Method: POST
+
 Description: After logging in, transfer money from your account to the account of the person with the specificied email.
 
 Params:
