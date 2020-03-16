@@ -21,6 +21,18 @@
             }
         }
 
+        function doesAccountExist($email){
+            $conn = DataManager::getInstance()->getConnection();
+            if(!$conn) return false;
+            if(!$statement = $conn->prepare("SELECT email FROM users WHERE email = ?")) error();
+            if(!$statement->bind_param("s", $email)) error();
+            if(!$statement->execute()) error();
+            $result = $statement->get_result();
+            if(!$result) error();
+            return ($result->num_rows >= 1);
+        }
+        
+
     }
 
 ?>
