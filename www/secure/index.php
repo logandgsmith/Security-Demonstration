@@ -19,13 +19,17 @@
             <input id="passwordConfirm" name="passwordConfirm" type="password"/>
             <input type="submit" value="Sign up"/>
         </form>
+        <hr>
         <form method="post" action="transfer.php">
             <label for="recipient"> Recipient's email: </label>
             <input id="recipient" name="recipient" type="email"/>
             <label for="amount"> Amount (in dollars): </label>
             <input id="amount" name="amount" type="text"/>
-
+            <label for="message"> Message: </label>
+            <input id="message" name="message" type="text"/>
             <input type="submit" value="Transfer funds"></input>
         </form>
+        <hr>
+        <button><a href="transfer.php">Click to see the funds you've recieved.</a></button>
     </body>
 </html>

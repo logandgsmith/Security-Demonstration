@@ -72,9 +72,28 @@ Params:
 ```js
     {
         email: <string>,
-        amount: <string> //type-casted server side
+        amount: <string>, //type-casted server side
+        message: <string> //optional, defaults to empty string
     }
 ```
 
 Response: No response object on success, check for "OK" status. 
 
+## See recent funds transfered to your account
+
+Target: /transfer.php
+
+Method: GET
+
+Description: Using your user token as stored in the HTTP body, get an array of recent transfers with messages.
+
+params: None. Submit an empty GET request to /transfer.php
+
+Response (array of transfers): [
+    {
+        sender: <string>, //email of person who sent funds
+        recipient: <string>, //email of person who recieved funds
+        message: <string>, //Message sent by sender
+        amount: <Number> //Amount of transferred money in dollars.
+    }
+]
