@@ -9,7 +9,7 @@
         }
 
         public function getConnection(){
-            return new mysqli("localhost", "thirstybois", "ExtremeThirst", "thirstybois"); //security-testing-uf:us-east1:mysql-phase-1
+            return new mysqli("security-testing-uf:us-east1:mysql-phase-1", "thirstybois", "ExtremeThirst", "thirstybois");
         }
 
         public static function getInstance(){
