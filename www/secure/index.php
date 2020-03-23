@@ -1,5 +1,6 @@
 <?php
-$redirect = $_SERVER['REQUEST_URI'];
+$redirectUnfiltered = $_SERVER['REQUEST_URI'];
+$redirect = explode('?', $redirectUnfiltered)[0];
 
 switch ($redirect) {
     case '/'  :
