@@ -89,7 +89,9 @@ Description: Using your user token as stored in the HTTP body, get an array of r
 
 params: None. Submit an empty GET request to /transfer.php
 
-Response (array of transfers): [
+Response (array of transfers):
+```js
+[
     {
         sender: <string>, //email of person who sent funds
         recipient: <string>, //email of person who recieved funds
@@ -97,3 +99,4 @@ Response (array of transfers): [
         amount: <Number> //Amount of transferred money in dollars.
     }
 ]
+```
