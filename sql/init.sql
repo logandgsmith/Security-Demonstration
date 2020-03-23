@@ -12,6 +12,13 @@ CREATE TABLE users(
     balance FLOAT NOT NULL DEFAULT 0.0
 );
 
+CREATE TABLE transfers(
+    email VARCHAR(256) NOT NULL,
+    message VARCHAR(255) NOT NULL,
+    amount INT NOT NULL
+);
+
 GRANT ALL PRIVILEGES ON thirstybois.users TO 'thirstybois'@'localhost';
+GRANT ALL PRIVILEGES ON thirstybois.transfers TO 'thirstybois'@'localhost';
 
 FLUSH PRIVILEGES;
