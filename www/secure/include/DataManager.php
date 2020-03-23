@@ -9,7 +9,7 @@
         }
 
         public function getConnection(){
-            return new mysqli("127.0.0.1", "thirstybois", "ExtremeThirst", "thirstybois");
+            return new mysqli("security-testing-uf:us-east1:mysql-phase-1", "thirstybois", "ExtremeThirst", "thirstybois");
         }
 
         public static function getInstance(){
