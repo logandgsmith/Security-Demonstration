@@ -13,7 +13,8 @@ CREATE TABLE users(
 );
 
 CREATE TABLE transfers(
-    email VARCHAR(256) NOT NULL,
+    sender VARCHAR(256) NOT NULL,
+    recipient VARCHAR(256) NOT NULL,
     message VARCHAR(255) NOT NULL,
     amount INT NOT NULL
 );

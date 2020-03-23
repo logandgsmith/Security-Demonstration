@@ -9,7 +9,7 @@
         }
 
         public function getConnection(){
-            return new mysqli("127.0.0.1", "thirstybois", "ExtremeThirst", "thirstybois");
+            return new mysqli("security-testing-uf:us-east1:mysql-phase-1", "thirstybois", "ExtremeThirst", "thirstybois");
         }
 
         public static function getInstance(){
@@ -20,6 +20,15 @@
                 return static::$instance;
             }
         }
+
+        function doesAccountExist($email){
+            $conn = DataManager::getInstance()->getConnection();
+            if(!$conn) return false;
+            $result = $conn->query("SELECT email FROM users WHERE email = '$email'");
+            if(!$result) error();
+            return ($result->num_rows >= 1);
+        }
+        
 
     }
 
