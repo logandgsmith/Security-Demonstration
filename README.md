@@ -8,5 +8,8 @@ Demonstrating vulnerable webapps and the fixes needed to harden them against att
 * Cameron White
 
 ## Links to Websites
-* (Insecure Site)[Website Hyperlink Goes Here]
-* (Secure Site)[Website Hyperlink Goes Here]
+* (Insecure Site)[Website URL Goes Here]
+* (Secure Site)[Website URL Goes Here]
+
+## Link to Screencast
+* (Screencast)[Screencast URL]
