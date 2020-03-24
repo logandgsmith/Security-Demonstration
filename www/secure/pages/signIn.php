@@ -18,11 +18,11 @@
             .then((resp) => resp.json())
             .then((response) => {
                 if(response && response.token) {
-                    document.cookie = ('token=' + response.token);
+                    document.cookie = ('token=' + response.token + ';path=/');
                 
                 alert("You are now signed in.");
                 } else {
-                    alert("error");
+                    alert("error (check console)");
                     console.log(response);
                 }
             }).catch(
