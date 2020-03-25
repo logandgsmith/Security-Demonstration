@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <h1>Shitty Bank (TM)</h1>
+    <h1>Terrible Bank (TM)</h1>
     <h1>Welcome to the landing page for our secure app!</h1>
 
     <button id="signIn">Sign In</button>

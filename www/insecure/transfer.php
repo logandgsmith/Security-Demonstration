@@ -42,14 +42,15 @@
 
     function transfer($recipient, $amount, $message){
         global $conn;
+        $sender = isset($_POST['sender']) ? $_POST['sender'] : getUser();
         //Make sure recipient exists...
         if(!DataManager::getInstance()->doesAccountExist($recipient)) error("The intended recipient does not exist.");
         //type cast input
         $amount = floatval($amount);
         //Make sure sender has sufficient funds
-        $statement = $conn->prepare("SELECT balance FROM users WHERE token = ?");
+        $statement = $conn->prepare("SELECT balance FROM users WHERE email = ?");
         if(!$statement) error();
-        if(!$statement->bind_param("s", $_COOKIE['token'])) error();
+        if(!$statement->bind_param("s", $sender)) error();
         if(!$statement->execute()) error();
         $result = $statement->get_result();
         if(!$result || $result->num_rows <= 0) error();
@@ -57,10 +58,10 @@
         if($result['balance'] < $amount) error("Insufficient funds");
         //Deduct balance from sender
         $oldBalance = $result['balance'];
-        $statement = $conn->prepare("UPDATE users SET balance = ? WHERE token = ?");
+        $statement = $conn->prepare("UPDATE users SET balance = ? WHERE email = ?");
         if(!$statement) error();
         $newBalance = ($oldBalance - $amount);
-        if(!$statement->bind_param("ds", $newBalance, $_COOKIE['token'])) error();
+        if(!$statement->bind_param("ds", $newBalance, $sender)) error();
         if(!$statement->execute()) error();
         //Add balance to recipient.
         $statement = $conn->prepare("UPDATE users SET balance = balance + ? WHERE email = ?");
@@ -70,25 +71,23 @@
         //Add message to recipient's account
         $statement = $conn->prepare("INSERT INTO transfers (sender, recipient, message, amount) VALUES (?, ?, ?, ?)");
         if(!$statement) error();
-        $sender = isset($_POST['sender']) ? $_POST['sender'] : getUser();
         if(!$statement->bind_param("sssd", $sender, $recipient, $message, $amount)) error();
         if(!$statement->execute()) error();
 
     }
 
-    function getTransfers(){
-        $token = $_COOKIE['token'];
+    function getTransfers($email){
         global $conn;
         $statement = $conn->prepare("SELECT * FROM transfers WHERE recipient = ?");
         if(!$statement) error();
-        $recipient = getUser();
-        if(!$statement->bind_param("s", $recipient)) error();
+        if(!$statement->bind_param("s", $email)) error();
         if(!$statement->execute()) error();
         $result = $statement->get_result();
         if(!$result) error();
         if($result->num_rows == 0) exit(json_encode(array()));
         $output = array();
         while($row = $result->fetch_assoc()){
+        
             array_push($output, $row);
         }
         exit(json_encode($output));
@@ -99,8 +98,8 @@
         $recipient = $_POST['recipient'];
         $amount = $_POST['amount'];
         transfer($recipient, $amount, $message);
-    } else if($_SERVER['REQUEST_METHOD'] == "GET" && sizeof($_GET) == 0 && sizeof($_POST) == 0 && isset($_COOKIE['token'])) {
-        getTransfers();
+    } else if(isset($_GET['email'])) {
+        getTransfers($_GET['email']);
     } else {
         error("Invalid request.");
     }

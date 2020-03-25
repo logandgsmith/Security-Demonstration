@@ -4,9 +4,9 @@
 
 When sending a message with a money transfer, the server will not sanitize the message when it sends it to the client. 
 
-## CSRF
+## Sensitive data exposure
 
-Disable the webserver headers that prohibit CSRF and then run malicious javascript no an external site
+Looking up transaction history doesn't require user authentication. oops! You can submit a GET request to /transfer.php?email=_____ and see anyone's transaction history so long as you're signed in to the website.
 
 ## SQL Injection
 

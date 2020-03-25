@@ -37,7 +37,7 @@
             error("Account already exists.");
         }
         if($password != $passwordConfirm) error("Passwords don't match.");
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) error("Provided email address is not valid.");
+        $password = "pepper1234" . $password; //Global pepper
         $statement = $conn->prepare("INSERT INTO users (email, password_hash, token) VALUES (?, ?, ?)");
         $token = generateToken();
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
@@ -49,6 +49,7 @@
     }
 
     function login($email, $password){
+        $password = "pepper1234" . $password;
         global $conn;
         $statement = $conn->prepare("SELECT email, password_hash FROM users WHERE email = ? LIMIT 1");
         $statement->bind_param("s", $email);
