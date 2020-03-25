@@ -12,4 +12,5 @@ Demonstrating vulnerable webapps and the fixes needed to harden them against att
 * [Secure Site](http://thirstybois.ddns.net)
 
 ## Link to Screencast
-* [Screencast](Screencast URL)
+* [Insecure App Demo](https://www.youtube.com/watch?v=Po5i5Q5GoUQ&feature=youtu.be)
+* [Secure App Demo](https://www.youtube.com/watch?v=P0lVGRbut3I&feature=youtu.be)
