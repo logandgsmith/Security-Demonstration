@@ -9,7 +9,7 @@ Demonstrating vulnerable webapps and the fixes needed to harden them against att
 
 ## Links to Websites
 * (Insecure Site)[Website URL Goes Here]
-* (Secure Site)[Website URL Goes Here]
+* (Secure Site)[http://thirstybois.ddns.net]
 
 ## Link to Screencast
 * (Screencast)[Screencast URL]
