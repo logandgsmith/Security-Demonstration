@@ -8,8 +8,8 @@ Demonstrating vulnerable webapps and the fixes needed to harden them against att
 * Cameron White
 
 ## Links to Websites
-* (Insecure Site)[Website URL Goes Here]
-(Secure Site)[http://thirstybois.ddns.net]
+* [Insecure Site](Website URL Goes Here)
+* [Secure Site](http://thirstybois.ddns.net)
 
 ## Link to Screencast
-* (Screencast)[Screencast URL]
+* [Screencast](Screencast URL)
