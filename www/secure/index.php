@@ -1,24 +1,36 @@
-<?php
-$redirectUnfiltered = $_SERVER['REQUEST_URI'];
-$redirect = explode('?', $redirectUnfiltered)[0];
+<!DOCTYPE html>
+<html>
+    <h1>Terrible Bank (TM)</h1>
+    <h1>Welcome to the landing page for our secure app!</h1>
 
-switch ($redirect) {
-    case '/'  :
-    case ''   :
-        require __DIR__ . '/pages/home.php';
-        break;
-    case '/signin' :
-        require __DIR__ . '/pages/signIn.php';
-        break;
-    case '/signup' :
-        require __DIR__ . '/pages/signUp.php';
-        break;
-    case '/dashboard' :
-        require __DIR__ . '/pages/dashboard.php';
-        break;
-    default:
-        require __DIR__ . '/pages/404.php';
-        break;
-}
+    <button id="signIn">Sign In</button>
+    <script>
+        var btn = document.getElementById('signIn');
+        btn.addEventListener('click', function () {
+            document.location.href = './pages/signIn.php';
+        });
+    </script>
 
-?>
+
+    <br><br>
+
+    <button id="signUp">Sign Up</button>
+    <script>
+        var btn = document.getElementById('signUp');
+        btn.addEventListener('click', function () {
+            document.location.href = './pages/signUp.php';
+        });
+    </script>
+
+    <br><br>
+
+    <button id="dashboard">Dashboard</button>
+    <script>
+        var btn = document.getElementById('dashboard');
+        btn.addEventListener('click', function () {
+            document.location.href = './pages/dashboard.php';
+        });
+    </script>
+
+</html>
+

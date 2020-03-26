@@ -1,6 +1,6 @@
 <h1>Welcome to the signup page! </h1>
 <br>
-<form method="post" action="authenticate.php">
+<form method="post" action="../authenticate.php">
     <label for="email"> Email: </label>
     <input id="email" name="email" type="email"/>
     <label for="password"> Password: </label>
